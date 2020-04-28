@@ -10,13 +10,15 @@
 
 using namespace std;
 
-class point{
+class Point
+{
 private:
     float x;
     float y;
-    
+
 public:
+    float getX();
+    float getY();
     string toString();
-    point(float x, float y);
-    
+    Point(float x, float y);
 };
