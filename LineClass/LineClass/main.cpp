@@ -11,6 +11,7 @@
 #include <string>
 #include "catch.hpp"
 #include "point.hpp"
+#include "Line.hpp"
 
 using namespace std;
 
@@ -59,7 +60,15 @@ TEST_CASE("To string")
         REQUIRE(abs(testP.getY() - 2.0) <= 0.0000001);
 
     }
+
+	SECTION("Making a Line") {
+		Line testL(Point(1.0,2.0),Point(1.0,2.0));
+		REQUIRE(testL>1.0);
+	}
+
 }
+
+
 
 //#include <iostream>
 //using namespace std;
