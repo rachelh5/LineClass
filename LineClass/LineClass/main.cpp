@@ -62,9 +62,50 @@ TEST_CASE("To string")
     }
 
 	SECTION("Making a Line") {
-		Line testL(Point(1.0,2.0),Point(1.0,2.0));
-		REQUIRE(testL>1.0);
+        try{
+            Line testL(Point(1.0,2.0),Point(1.0,2.0));
+            FAIL();
+        }
+        catch(...){
+            SUCCEED();
+        }
 	}
+    
+    SECTION("Testing onLine"){
+        Line testL(Point(2.5, 4.7),Point(3.8, 5.3));
+        Point testP(6.0, 10.4);
+        REQUIRE(!testL.onLine(testP));
+        
+        Line testL2(Point(2.0, 4.0),Point(4.0, 4.0));
+        Point testP2(3.0, 4.0);
+        REQUIRE(testL2.onLine(testP2));
+    }
+    
+    SECTION("Testing Length"){
+        Line testL(Point(2.0,4.0),Point(5.5, 6.0));
+        REQUIRE(testL.length());
+    }
+    
+    SECTION("Testing is paralell"){
+        Line testL1(Point(1.0,1.0),Point(2.0,2.0));
+        Line testL2(Point(2.0,2.0),Point(4.0,4.0));
+        REQUIRE(testL1.isParallel(testL2));
+        
+        Line testL3(Point(5.0,1.0),Point(6.0,2.0));
+        Line testL4(Point(1.0,2.0),Point(4.0,4.0));
+        REQUIRE(!testL3.isParallel(testL2));
+    }
+    
+    SECTION("Testing doesCross"){
+        Line testL1(Point(4.0,1.0),Point(5.0,2.0));
+        Line testL2(Point(1.0,2.0),Point(2.0,4.0));
+        REQUIRE(testL1.doesCross(testL2));
+        
+        Line testL3(Point(1.0,1.0),Point(2.0,2.0));
+        Line testL4(Point(2.0,2.0),Point(4.0,4.0));
+        REQUIRE(!testL1.doesCross(testL2));
+
+    }
 
 }
 

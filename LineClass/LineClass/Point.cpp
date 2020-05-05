@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "Point.hpp"
+#include "point.hpp"
 #include <iomanip>
 #include <sstream>
 

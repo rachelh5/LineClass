@@ -1,5 +1,5 @@
 #pragma once
-#include <String>
+#include <string>
 #include "point.hpp"
 
 using namespace std;
@@ -11,7 +11,7 @@ private:
 	Point p2;
 
 public:
-	bool onLine(Point);
+	bool onLine(Point point1);
 	float length();
 	bool isParallel(Line line1);
 	bool doesCross(Line line1);
